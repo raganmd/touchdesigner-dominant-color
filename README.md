@@ -32,20 +32,20 @@ Other considerations you'll find below are that this extension supports a multi-
 
 ## Parameters
 **Dominant Color**  
-Image Process Status - (string) The thread process status.  
-Temp Image Cache - (folder) A directory location for a temp image file.  
-Source Image - (TouchDesigner TOP) A TOP (still) used for color analysis.  
-Clusters - (int) The number of requested cluseters.  
-Luminance Bounds - (int, tuple) Luminance bounds, mine and max expressed as value between 0 and 1.   
-Clusters within Bounds - (int) The number of clusters within the Lumiance Bounds.   
-Smooth Ramp - (toggle) Texture interpolation on output image.   
-Ramp Width - (int) Number of pixels in the output Ramp.   
-Output Image - (menu) A drop-down menue for selecting a ramp or only the returned clusters.   
-Find Colors - (pulse) Issues the command to find dominant colors.   
+* **Image Process Status** - (string) The thread process status.  
+* **Temp Image Cache** - (folder) A directory location for a temp image file.  
+* **Source Image** - (TouchDesigner TOP) A TOP (still) used for color analysis.  
+* **Clusters** - (int) The number of requested cluseters.  
+* **Luminance Bounds** - (int, tuple) Luminance bounds, mine and max expressed as value between 0 and 1.   
+* **Clusters within Bounds** - (int) The number of clusters within the Lumiance Bounds.   
+* **Smooth Ramp** - (toggle) Texture interpolation on output image.   
+* **Ramp Width** - (int) Number of pixels in the output Ramp.   
+* **Output Image** - (menu) A drop-down menue for selecting a ramp or only the returned clusters.   
+* **Find Colors** - (pulse) Issues the command to find dominant colors.   
 
 **Python**  
-Python Externals - (path) A path to the directory with python external libraries. 
-Check Imports - (pulse) A pulse button to check if sclearn was correclty imported.  
+* **Python Externals** - (path) A path to the directory with python external libraries. 
+* **Check Imports** - (pulse) A pulse button to check if sclearn was correclty imported.  
 
 ## References
 * [Dominant Colors with KMeans Clustering](https://buzzrobot.com/dominant-colors-in-an-image-using-k-means-clustering-3c7af4622036)  
