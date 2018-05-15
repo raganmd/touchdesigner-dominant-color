@@ -1,14 +1,18 @@
 # TouchDesigner Dominant Color  
 An approach for finding dominant color in an image using KMeans clustering with scikit learn and openCV. The approach here is built for realtime applications using TouchDesigner and python multi-threading.
 
+## Contributing Programers / Artists ##
+**Matthew Ragan** | [ matthewragan.com](http://matthewragan.com)  
+
+## TouchDesigner Version
+099  
+Build 2018.22800
+
 ## Python Dependencies
 * numpy
 * scipy
 * sklearn 
 * cv2
-
-## Contributing Programers / Artists ##
-**Matthew Ragan** | [ matthewragan.com](http://matthewragan.com)  
 
 ## Overview
 A tool for finding Dominant Color with openCV.
@@ -26,7 +30,7 @@ Other considerations you'll find below are that this extension supports a multi-
 ## Using this Module 
 
 
-## Paratmeters
+## Parameters
 **Dominant Color**  
 Image Process Status - (string) The thread process status.  
 Temp Image Cache - (folder) A directory location for a temp image file.  
