@@ -101,3 +101,7 @@ Finally, to run the operation pulse `Find Colors`. As an operational note, this 
 * [Dominant Colors with KMeans Clustering](https://buzzrobot.com/dominant-colors-in-an-image-using-k-means-clustering-3c7af4622036)  
 * [KMeans Python Gist Example](https://gist.github.com/skt7/71044f42f9323daec3aa035cd050884e)  
 * [openCV and KMeans color clustering](https://www.pyimagesearch.com/2014/05/26/opencv-python-k-means-color-clustering/)  
+
+## Notes from Other Programmers
+I don't use CONDA, but for those of you that do, you can install sklearn with the following command:  
+`conda install scikit-learn`
