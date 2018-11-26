@@ -12,6 +12,11 @@ data/logs/
 ###################
 .vs/
 
+# python dependancy bits #
+###################
+dep/python/
+
+
 # Compiled source #
 ###################
 *.com
