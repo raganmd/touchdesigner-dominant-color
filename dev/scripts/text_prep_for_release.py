@@ -2,7 +2,7 @@ base_ext_tox 		= op('base_hueControl')
 version 		    = op('table_version')[0,0].val
 reset_color 	    = (0.545, 0.545, 0.545)
 save_loc 		    = '../release/base_hueControl.tox'
-ext_file 		    = 'hueControlEXT'
+ext_file 		    = base_ext_tox.findChildren(tags=['EXT'])
 
 ext_ops             = base_ext_tox.findChildren(tags=['EXT', 'MOD'])
 
