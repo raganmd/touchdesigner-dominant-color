@@ -54,7 +54,7 @@ def Check_dep_path():
 	'''
  
 	Dep_path 		= '{}/dep'.format(project.folder)
-	phue_path 		= '{}/dep/python/phue.py'.format(project.folder)
+	module_path 	= '{}/dep/python/sklearn.py'.format(project.folder)
 	win_py_dep 		= '{}/dep/update-dep-python-windows.cmd'.format(project.folder)
 	mac_py_dep 		= '{}/dep/update-dep-python-mac.sh'.format(project.folder)
 
@@ -88,13 +88,13 @@ def Check_dep_path():
 
 	# on windows run the file in command line
 	if osPlatform == "Windows":
-		if os.path.isfile(phue_path):
+		if os.path.isfile(module_path):
 			pass
 		else:
 			subprocess.Popen([win_py_dep])
 	
 	elif osPlatform == "Darwin":
-		if os.path.isfile(phue_path):
+		if os.path.isfile(module_path):
 			pass
 		else:
 			subprocess.Popen([mac_py_dep])
@@ -111,7 +111,11 @@ def win_dep():
 python -m pip install --upgrade pip
 
 :: pull phue
-pip install --target="%~dp0\python" phue'''
+pip install --target="%~dp0\python" numpy
+pip install --target="%~dp0\python" scipy
+pip install --target="%~dp0\python" cv2
+pip install --target="%~dp0\python" sklearn
+'''
 
     return win_txt
 
@@ -138,6 +142,9 @@ python3 get-pip.py
 python3 -m pip install --upgrade pip
 
 # pull phue
-python3 -m pip install --target=$dep$pythonDir phue
+python3 -m pip install --target=$dep$pythonDir numpy
+python3 -m pip install --target=$dep$pythonDir scipy
+python3 -m pip install --target=$dep$pythonDir cv2
+python3 -m pip install --target=$dep$pythonDir sklearn
 '''
     return mac_txt
