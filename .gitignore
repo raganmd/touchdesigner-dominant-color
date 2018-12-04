@@ -14,8 +14,8 @@ data/logs/
 
 # python dependancy bits #
 ###################
-dep/python/
-
+dev/dep/python/
+release/dep/python
 
 # Compiled source #
 ###################
