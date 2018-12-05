@@ -54,7 +54,7 @@ def Check_dep_path():
 	'''
  
 	Dep_path 		= '{}/dep'.format(project.folder)
-	module_path 	= '{}/dep/python/sklearn.py'.format(project.folder)
+	module_path 	= '{}/dep/python/sklearn'.format(project.folder)
 	win_py_dep 		= '{}/dep/update-dep-python-windows.cmd'.format(project.folder)
 	mac_py_dep 		= '{}/dep/update-dep-python-mac.sh'.format(project.folder)
 
@@ -88,13 +88,13 @@ def Check_dep_path():
 
 	# on windows run the file in command line
 	if osPlatform == "Windows":
-		if os.path.isfile(module_path):
+		if os.path.isdir(module_path):
 			pass
 		else:
 			subprocess.Popen([win_py_dep])
 	
 	elif osPlatform == "Darwin":
-		if os.path.isfile(module_path):
+		if os.path.isdir(module_path):
 			pass
 		else:
 			subprocess.Popen([mac_py_dep])
