@@ -1,13 +1,13 @@
-base_ext_tox 		= op('base_hueControl')
+ext_tox_name        = 'base_dominant_color'
+base_ext_tox 		= op(ext_tox_name)
 version 		    = op('table_version')[0,0].val
 reset_color 	    = (0.545, 0.545, 0.545)
-save_loc 		    = '../release/base_hueControl.tox'
+save_loc 		    = '../release/{}.tox'.format(ext_tox_name)
 ext_file 		    = base_ext_tox.findChildren(tags=['EXT'])
 
 ext_ops             = base_ext_tox.findChildren(tags=['EXT', 'MOD'])
 
-destroy_ops         = [ 'svg_icon',
-                      'transform1']
+destroy_ops         = [ 'svg_icon']
 
 # save tox
 # set version
