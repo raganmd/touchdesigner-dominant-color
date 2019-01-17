@@ -59,7 +59,6 @@ class DomColor:
 		
 		self.DomColorOp 					= op(ext_op)
 		self.Clusters						= op(ext_op).par.Clusters
-		self.PythonExternals				= op(ext_op).par.Pythonexternals
 		self.TempFolder						= op(ext_op).par.Tempimagecache
 		self.RampDAT						= op('ramp1_keys')
 		self.SourceImgTOP					= op('null1')
@@ -255,7 +254,6 @@ class DomColor:
 			---------------
 			none
 		'''
-
 		# mark thread as processing
 		myQ.put("Processing")
 
@@ -340,67 +338,6 @@ class DomColor:
 
 		return
 
-	def Import_external_test(self):
-		'''
-			A helper method to give the user feedback about external libraries.
-
-			This method is used to help ensrue that the external python library has been
-			correclty loaded and added to sys.path. This is called by the Check Imports pulse
-			button on the parent object, and is largely a helper for the user to track down
-			any dependent elements that may not be loading correctly.
-
-			Args
-			---------------
-			none
-
-			Returns
-			---------------
-			none
-		'''
-
-		importHelp 				= 'http://derivative.ca/wiki099/index.php?title=Introduction_to_Python_Tutorial#Importing_Modules'
-		messagBoxTitle			= 'Import Failure'
-		messageBoxMessage		= '''\r
-It looks like something when wrong importing
-skLearn. Make sure you've added a path to your 
-Python Externals library, and that you've sucessfully
-installed sci-kit learn (sklearn) for your version
-of Python.
-'''
-		messageBoxButtons		= ['Get Help', 'Close']
-		pythonPath 				= "{}/".format(self.PythonExternals)
-
-		# check to make sure the externals are in sys.path
-		if pythonPath not in sys.path:
-			sys.path.append(pythonPath)
-		else:
-			pass
-
-		# check to see if we've imported sklearn yet
-		if self.ExternalsImport:
-			pass
-
-		else:
-			# safe attempts to check for sklearn module
-			try:
-				from sklearn.cluster import KMeans
-				print("Loading sklearn sucessful")
-
-			# warn the user that import failed
-			except:
-				messageResults = ui.messageBox(	messagBoxTitle, 
-												messageBoxMessage, 
-												buttons=messageBoxButtons)
-
-				if messageResults:
-					pass
-
-				else:
-					# launch derivative wiki for help
-					webbrowser.open(importHelp)
-
-		return
-
 	def Clean_up(self):
 		'''
 			Any code clean up process necessary for clean execution.
@@ -423,4 +360,7 @@ of Python.
 
 		# clear out storage 
 		self.DomColorOp.unstore('*')
+
+		# clear out que object for saving
+		self.ColorQ = None
 		return
