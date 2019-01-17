@@ -21,11 +21,11 @@ A tool for finding Dominant Color with openCV.
 
 Here we find an attempt at locating dominant colors from a source image with openCV and KMeans clustering. The large idea is to sample colors from a source image build averages from clustered samples and return a best estimation of dominant color. While this works well, it's not perfect, and in this class you'll find a number of helper methods to resolve some of the shortcomings of this process. 
 
-Procedurally, you'll find that that the process starts by saving out a small resolution version of the sampled file. This is then hadned over to openCV
+Procedurally, you'll find that that the process starts by saving out a small resolution version of the sampled file. This is then handed over to openCV
 for some preliminary analysis before being again handed over to sklearn (sci-kit learn) for the KMeans portion of the process. While there is a built-in
 function for KMeans sorting in openCV the sklearn method is a little less cumbersome and has better reference documentation for building functionality. After the clustering process each resulting sample is processed to find its luminance. Luminance values outside of the set bounds are discarded before assembling a final array of pixel values to be used. 
 
-It's worth noting that this method relies on a number of additional python libraries. These can all be pip installed, and the recomended build appraoch here would be to use Python35. In the developers experience this produces the least number of errors and issues - and boy did the developer stumble along the way here.
+It's worth noting that this method relies on a number of additional python libraries. These can all be pip installed, and the recommended build approach here would be to use Python35. In the developers experience this produces the least number of errors and issues - and boy did the developer stumble along the way here.
 
 Other considerations you'll find below are that this extension supports a multi-threaded approach to finding results. 
 
