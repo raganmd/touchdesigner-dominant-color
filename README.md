@@ -15,17 +15,17 @@ Build 2018.22800
 * cv2
 
 ## Overview
-![base_dominant_color](https://raw.githubusercontent.com/raganmd/touchdesigner-dominant-color/master/img-lib/op-view.PNG)
+![base_dominant_color](assets/op-view.PNG)
 
 A tool for finding Dominant Color with openCV.
 
 Here we find an attempt at locating dominant colors from a source image with openCV and KMeans clustering. The large idea is to sample colors from a source image build averages from clustered samples and return a best estimation of dominant color. While this works well, it's not perfect, and in this class you'll find a number of helper methods to resolve some of the shortcomings of this process. 
 
-Procedurally, you'll find that that the process starts by saving out a small resolution version of the sampled file. This is then hadned over to openCV
+Procedurally, you'll find that that the process starts by saving out a small resolution version of the sampled file. This is then handed over to openCV
 for some preliminary analysis before being again handed over to sklearn (sci-kit learn) for the KMeans portion of the process. While there is a built-in
 function for KMeans sorting in openCV the sklearn method is a little less cumbersome and has better reference documentation for building functionality. After the clustering process each resulting sample is processed to find its luminance. Luminance values outside of the set bounds are discarded before assembling a final array of pixel values to be used. 
 
-It's worth noting that this method relies on a number of additional python libraries. These can all be pip installed, and the recomended build appraoch here would be to use Python35. In the developers experience this produces the least number of errors and issues - and boy did the developer stumble along the way here.
+It's worth noting that this method relies on a number of additional python libraries. These can all be pip installed, and the recommended build approach here would be to use Python35. In the developers experience this produces the least number of errors and issues - and boy did the developer stumble along the way here.
 
 Other considerations you'll find below are that this extension supports a multi-threaded approach to finding results. 
 
@@ -60,7 +60,7 @@ Before you can run this module you'll need to ensure that your Python environmen
 
 Once you've installed the libraries above, you can confirm that they're available in python by invoking python in your command prompt, and then importing the libraries one by one. Testing to make sure you've correctly installed your libraries in a Python only environment first, will help ensure that any debugging you need to do in TouchDesigner is more straightforward.
 
-![python-externals-confirmation](https://raw.githubusercontent.com/raganmd/touchdesigner-dominant-color/master/img-lib/dependency-confirmation.PNG)
+![python-externals-confirmation](assets/dependency-confirmation.PNG)
 
 ### Working with TouchDesigner
 #### Python | Importing Modules
@@ -74,7 +74,7 @@ if mypath not in sys.path:
 ```
 Copy and paste the above into your text DAT, and modify `mypath` to be a string that points do your Python externals site-packages directory.
 
-![python-page-dominant-color](https://raw.githubusercontent.com/raganmd/touchdesigner-dominant-color/master/img-lib/python-imports.PNG)
+![python-page-dominant-color](assets/python-imports.PNG)
 
 If that sounds a little out of your depth, you can use a helper feature on the Dominant Color module. On the `Python` page, navigate to your Python Externals directory. It should likely be a path like: `C:\Program Files\Python35\Lib\site-packages`
 
@@ -83,7 +83,7 @@ Your path may be different, especially if when you installed Python you didn't u
 #### Using the Dominant Color
 With all of your Python elements in order, you're ready to start using this module. 
 
-![dominant-colors-parameters](https://raw.githubusercontent.com/raganmd/touchdesigner-dominant-color/master/img-lib/dominant-color-parameters.PNG)
+![dominant-colors-parameters](assets/dominant-color-parameters.PNG)
 
 The process for finding dominant color uses a [KMeans clustering algorithm](https://en.wikipedia.org/wiki/K-means_clustering) for grouping similar values. Luckily we don't need to know all of the statistics that goes into that mechanism in order to take full advantage of the approach, but it is important to know that we need to be mindful a few elements. For this to work efficiently, we'll need to save our image out to an external file. For this to work you need to make sure that this module has a cache for saving temporary images. The process will verify that the directory you've pointed it to exists before saving out a file, and will create a directory if one doesn't yet exist. That's mostly sanity checking to ensure that you don't have to loose time trying to figure out why your file isn't saving.
 

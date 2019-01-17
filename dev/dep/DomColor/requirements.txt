@@ -1,0 +1,4 @@
+cv2
+numpy
+scipy
+sklearn
