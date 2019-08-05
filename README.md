@@ -95,7 +95,7 @@ The output ramp from this process can be interpolated and smooth, or Nearest Pix
 
 On the otherside of that equation, you might just want only the samples that came out of the process. In the Output Image parameter, if you choose `clusters` from the drop down menu you'll get only the valid samples that fell within your specified luminance bounds.
 
-Finally, to run the operation pulse `Find Colors`. As an operational note, this process would normally block / lock-up TouchDesigner. To avoid that unsavory circumstance, this module runs the KMeans clustering process in another thread. It's slightly slower than if it ran in the main thread, but the benefit is that Touch will continue running. You'll notice that `Image Process Status` parameter displays `Processing` while the separate thread is running. Once the result has been returned you'll `Ready` displayed in the parameter. 
+Finally, to run the operation pulse `Find Colors`. As an operational note, this process would normally block / lock-up TouchDesigner. To avoid that unsavory circumstance, this module runs the KMeans clustering process in another thread. It's slightly slower than if it ran in the main thread, but the benefit is that Touch will continue running. You'll notice that `Image Process Status` parameter displays `Processing` while the separate thread is running. Once the result has been returned you'll see `Ready` displayed in the parameter. 
 
 ## References
 * [Dominant Colors with KMeans Clustering](https://buzzrobot.com/dominant-colors-in-an-image-using-k-means-clustering-3c7af4622036)  
@@ -105,3 +105,8 @@ Finally, to run the operation pulse `Find Colors`. As an operational note, this 
 ## Notes from Other Programmers
 I don't use CONDA, but for those of you that do, you can install sklearn with the following command:  
 `conda install scikit-learn`
+
+# Credits
+
+## Icons
+[Material Design Icons by Google](https://material.io/resources/icons/?icon=save_alt&style=baseline)
