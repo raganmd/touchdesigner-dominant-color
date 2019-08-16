@@ -4,11 +4,11 @@ An approach for finding dominant color in an image using KMeans clustering with 
 ## Contributing Programers / Artists ##
 **Matthew Ragan** | [ matthewragan.com](http://matthewragan.com)  
 
-## TouchDesigner Version
-099  
-Build 2018.22800
+## TouchDesigner
+099 2018.22800 or later
 
 ## Python Dependencies
+Python Version 3.5.4
 * numpy
 * scipy
 * sklearn 
