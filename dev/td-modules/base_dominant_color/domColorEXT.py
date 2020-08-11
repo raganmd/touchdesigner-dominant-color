@@ -183,7 +183,7 @@ class DomColor:
 		self.Check_path(colorImgDir)
 
 		# save image to cache
-		self.SourceImgTOP.save( colorImgFilePath , async=False )
+		self.SourceImgTOP.save( colorImgFilePath , asynchronous=False )
 
 		# start separate thread
 		myThread 						= threading.Thread(	target=self.Process_image_thread_worker, 
