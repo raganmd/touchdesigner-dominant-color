@@ -1,0 +1,27 @@
+{
+    "folders": [
+        {
+            "name": "TouchDesigner",
+            "path": "../dev",
+            "cwd": "${workspaceFolder}",
+            "python.interpreterPath": "C:/Program Files/Derivative/TouchDesigner.2023.11600/bin/python.exe"
+        },
+    ],
+    "settings": {
+        "files.exclude": {
+            ".dart_tool": true,
+            ".idea": true,
+            "android": true,
+            "ios": true,
+            "linux": true,
+            "macos": true,
+            ".flutter-plugins*": true,
+            ".metadata": true,
+            "analysis_options.yaml": true,
+            "dashboard.iml": true,
+            "pubspec.lock": true,
+            "LICENSE": true,
+        },
+        "workbench.colorTheme": "GitHub Dark Default"
+    }
+}
