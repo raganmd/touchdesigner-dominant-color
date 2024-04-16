@@ -11,7 +11,7 @@ An approach for finding dominant color in an image using KMeans clustering with 
 Python Version 3.5.4
 * numpy
 * scipy
-* sklearn 
+* scikit-learn 
 * cv2
 
 ## Overview
@@ -22,8 +22,8 @@ A tool for finding Dominant Color with openCV.
 Here we find an attempt at locating dominant colors from a source image with openCV and KMeans clustering. The large idea is to sample colors from a source image build averages from clustered samples and return a best estimation of dominant color. While this works well, it's not perfect, and in this class you'll find a number of helper methods to resolve some of the shortcomings of this process. 
 
 Procedurally, you'll find that that the process starts by saving out a small resolution version of the sampled file. This is then handed over to openCV
-for some preliminary analysis before being again handed over to sklearn (sci-kit learn) for the KMeans portion of the process. While there is a built-in
-function for KMeans sorting in openCV the sklearn method is a little less cumbersome and has better reference documentation for building functionality. After the clustering process each resulting sample is processed to find its luminance. Luminance values outside of the set bounds are discarded before assembling a final array of pixel values to be used. 
+for some preliminary analysis before being again handed over to scikit-learn (sci-kit learn) for the KMeans portion of the process. While there is a built-in
+function for KMeans sorting in openCV the scikit-learn method is a little less cumbersome and has better reference documentation for building functionality. After the clustering process each resulting sample is processed to find its luminance. Luminance values outside of the set bounds are discarded before assembling a final array of pixel values to be used. 
 
 It's worth noting that this method relies on a number of additional python libraries. These can all be pip installed, and the recommended build approach here would be to use Python35. In the developers experience this produces the least number of errors and issues - and boy did the developer stumble along the way here.
 
@@ -52,11 +52,11 @@ To use this module there are a few essential elements to keep in mind.
 ### Getting Python in Order
 If you haven't worked with external Python Libraries inside of Touch yet, please take a moment to familiarize yourself with the process. You can read more about it on the Derivative Wiki - [Importing Modules](https://docs.derivative.ca/index.php?title=Introduction_to_Python_Tutorial#Importing_Modules)
 
-Before you can run this module you'll need to ensure that your Python environment is correctly set-up. I'd recommend that you install Python 3.5+ as that matches the Python installation in Touch. In building out this tool I ran into some wobbly pieces that largely centered around installing sklearn using Python 3.6 - so take it from someone whose already ran into some issues, you'll encounter the fewest challenges / configuration issues if you start there. Sklearn (the primary external library used by this module) requires both scipy and numpy - if you have pip installed the process is straightforward. From a command prompt you can run each of these commands consecutively:  
+Before you can run this module you'll need to ensure that your Python environment is correctly set-up. I'd recommend that you install Python 3.5+ as that matches the Python installation in Touch. In building out this tool I ran into some wobbly pieces that largely centered around installing scikit-learn using Python 3.6 - so take it from someone whose already ran into some issues, you'll encounter the fewest challenges / configuration issues if you start there. Scikit-learn (the primary external library used by this module) requires both scipy and numpy - if you have pip installed the process is straightforward. From a command prompt you can run each of these commands consecutively:  
 
 `pip install numpy`  
 `pip install scipy`  
-`pip install sklearn`  
+`pip install scikit-learn`  
 
 Once you've installed the libraries above, you can confirm that they're available in python by invoking python in your command prompt, and then importing the libraries one by one. Testing to make sure you've correctly installed your libraries in a Python only environment first, will help ensure that any debugging you need to do in TouchDesigner is more straightforward.
 
@@ -93,7 +93,7 @@ Next you'll need to define the number of clusters you want to look for. Here the
 
 The output ramp from this process can be interpolated and smooth, or Nearest Pixel swatches. You can also choose to output a ramp that's any length. You might, for example, want a gradient that's spread over 100 or 1000 pixels rather than just the discrete samples. You can set the number of output pixels with the ramp width parameter.
 
-On the otherside of that equation, you might just want only the samples that came out of the process. In the Output Image parameter, if you choose `clusters` from the drop down menu you'll get only the valid samples that fell within your specified luminance bounds.
+On the other side of that equation, you might just want only the samples that came out of the process. In the Output Image parameter, if you choose `clusters` from the drop down menu you'll get only the valid samples that fell within your specified luminance bounds.
 
 Finally, to run the operation pulse `Find Colors`. As an operational note, this process would normally block / lock-up TouchDesigner. To avoid that unsavory circumstance, this module runs the KMeans clustering process in another thread. It's slightly slower than if it ran in the main thread, but the benefit is that Touch will continue running. You'll notice that `Image Process Status` parameter displays `Processing` while the separate thread is running. Once the result has been returned you'll see `Ready` displayed in the parameter. 
 
@@ -103,7 +103,7 @@ Finally, to run the operation pulse `Find Colors`. As an operational note, this 
 * [openCV and KMeans color clustering](https://www.pyimagesearch.com/2014/05/26/opencv-python-k-means-color-clustering/)  
 
 ## Notes from Other Programmers
-I don't use CONDA, but for those of you that do, you can install sklearn with the following command:  
+I don't use CONDA, but for those of you that do, you can install scikit-learn with the following command:  
 `conda install scikit-learn`
 
 # Credits
