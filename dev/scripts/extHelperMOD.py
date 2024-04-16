@@ -1,5 +1,7 @@
+import importlib.util
 import os
 import subprocess
+import importlib
 
 
 def Check_dep(debug: bool = False) -> None:
@@ -12,7 +14,7 @@ def Check_dep(debug: bool = False) -> None:
     '''
 
     # our path for all non-standard python modules
-    dep_path = '{}/dep/python/'.format(project.folder)
+    dep_path = f'{project.folder}/dep/python/'
 
     # if our path is already present we can skip this step
     if dep_path in sys.path:
@@ -67,8 +69,27 @@ def Install_python_external() -> None:
         with open(requirements, "w") as reqs_file:
             reqs_file.write(reqs_dat.text)
 
-    run_subprocess_install(python_exe=python_exe, reqs_file_path=requirements,
-                           target_installation_path=python_path)
+    print(reqs_dat.text.split('\n')[0])
+
+    # check dependencies are installed
+    deps_met = check_for_package(reqs_dat.text.split('\n')[0])
+    if deps_met:
+        print("Skipping Module installation process")
+        pass
+    else:
+        print("Running Module installation process")
+        run_subprocess_install(python_exe=python_exe, reqs_file_path=requirements,
+                               target_installation_path=python_path)
+
+
+def check_for_package(mod_name: str) -> bool:
+    '''Helper checks to see if a package is installed
+    '''
+    req_mod = importlib.util.find_spec(mod_name)
+    if req_mod is not None:
+        return True
+    else:
+        return False
 
 
 def run_subprocess_install(python_exe: str, reqs_file_path: str, target_installation_path: str) -> None:
@@ -81,6 +102,5 @@ def run_subprocess_install(python_exe: str, reqs_file_path: str, target_installa
     popen_args = [python_exe, "-m", "pip", "install", "-r",
                   f"{reqs_file_path}", "--target", f"{target_installation_path}"]
 
-    print(popen_args)
     # run installation as subprocess call
     subprocess.Popen(popen_args, shell=False)
